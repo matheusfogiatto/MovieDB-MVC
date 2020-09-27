@@ -61,20 +61,35 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="oJc-tM-ScQ"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GuR-6B-2PS">
-                                                    <size key="itemSize" width="128" height="128"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GuR-6B-2PS">
+                                                    <size key="itemSize" width="361" height="150"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="O9d-ko-v7Y">
-                                                        <rect key="frame" x="0.0" y="36" width="128" height="128"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieImagesCollectionViewCell" id="O9d-ko-v7Y" customClass="MovieImagesCollectionViewCell" customModule="MovieDB_MVC" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="25" width="361" height="150"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GI3-p2-ZLB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yPw-Ly-1l4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="yPw-Ly-1l4" firstAttribute="leading" secondItem="GI3-p2-ZLB" secondAttribute="leading" id="XWk-rW-K2Q"/>
+                                                                <constraint firstAttribute="bottom" secondItem="yPw-Ly-1l4" secondAttribute="bottom" id="aJA-nu-Gul"/>
+                                                                <constraint firstAttribute="trailing" secondItem="yPw-Ly-1l4" secondAttribute="trailing" id="jWv-eh-ffD"/>
+                                                                <constraint firstItem="yPw-Ly-1l4" firstAttribute="top" secondItem="GI3-p2-ZLB" secondAttribute="top" id="kuD-iW-45s"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
+                                                        <size key="customSize" width="361" height="150"/>
+                                                        <connections>
+                                                            <outlet property="imageBackdrop" destination="yPw-Ly-1l4" id="cbq-2Y-bYa"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -114,6 +129,7 @@
                                             <constraint firstAttribute="trailing" secondItem="wPp-xY-fiM" secondAttribute="trailing" constant="20" id="6Xt-nb-ylT"/>
                                             <constraint firstItem="wPp-xY-fiM" firstAttribute="leading" secondItem="i3H-lQ-QBY" secondAttribute="leading" constant="20" id="I8w-NG-b8b"/>
                                             <constraint firstItem="qsE-aq-BBb" firstAttribute="top" secondItem="U0p-vg-gIV" secondAttribute="bottom" constant="5" id="LPH-v2-aMs"/>
+                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="ww2-rK-g63" secondAttribute="bottom" constant="345" id="TEY-TZ-iAw"/>
                                             <constraint firstAttribute="trailing" secondItem="ww2-rK-g63" secondAttribute="trailing" constant="20" id="VDi-ff-GK5"/>
                                             <constraint firstItem="U0p-vg-gIV" firstAttribute="leading" secondItem="gI4-YV-BMe" secondAttribute="trailing" constant="10" id="WIN-OH-fDO"/>
                                             <constraint firstItem="6rA-Mb-Gt2" firstAttribute="top" secondItem="gI4-YV-BMe" secondAttribute="bottom" constant="20" id="WSU-Id-IHZ"/>
@@ -124,6 +140,7 @@
                                             <constraint firstItem="gI4-YV-BMe" firstAttribute="leading" secondItem="i3H-lQ-QBY" secondAttribute="leading" constant="20" id="eKq-su-d1j"/>
                                             <constraint firstItem="U0p-vg-gIV" firstAttribute="centerY" secondItem="gI4-YV-BMe" secondAttribute="centerY" id="hfv-Fq-XEM"/>
                                             <constraint firstItem="gI4-YV-BMe" firstAttribute="top" secondItem="i3H-lQ-QBY" secondAttribute="top" constant="20" id="jkq-ih-LDc"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ww2-rK-g63" secondAttribute="bottom" constant="20" id="kVa-t1-xhp"/>
                                             <constraint firstItem="FLW-8r-eo8" firstAttribute="top" secondItem="wPp-xY-fiM" secondAttribute="bottom" constant="20" id="noV-37-NvI"/>
                                             <constraint firstItem="wPp-xY-fiM" firstAttribute="top" secondItem="6rA-Mb-Gt2" secondAttribute="bottom" constant="5" id="nzT-MB-YDU"/>
                                             <constraint firstAttribute="trailing" secondItem="U0p-vg-gIV" secondAttribute="trailing" constant="20" id="szD-6S-oFx"/>
@@ -154,6 +171,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="wPp-xY-fiM" id="b3V-Qc-0iJ"/>
+                        <outlet property="imagesCollectionView" destination="ww2-rK-g63" id="NmV-Lf-dgN"/>
                         <outlet property="movieImage" destination="gI4-YV-BMe" id="Vig-av-PR8"/>
                         <outlet property="ratingLabel" destination="iA5-JA-893" id="CYt-dJ-pom"/>
                         <outlet property="titleLabel" destination="U0p-vg-gIV" id="tpn-hK-E44"/>

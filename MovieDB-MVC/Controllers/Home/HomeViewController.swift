@@ -43,6 +43,7 @@ class HomeViewController: UIViewController {
             case .success(let movies):
                 DispatchQueue.main.async {
                     self.movies = movies
+                    print(movies)
                     self.moviesTableView.reloadData()
                 }
             case .failure(let error):

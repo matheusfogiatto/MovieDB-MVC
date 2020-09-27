@@ -18,6 +18,10 @@ struct  MoviesResults: Codable {
     var results : [Movie]
 }
 
+struct  MovieDetailsResult: Codable {
+    var results : MovieImages
+}
+
 class MovieDBResquest {
     
     let API_KEY = "71e9aa47b38db25bc9b3aca8210619b0"
@@ -76,6 +80,48 @@ class MovieDBResquest {
         }
         task.resume()
         
+    }
+    
+    func getMovieImages(movieId: Int, completion: @escaping (Result<MovieImages, ResultError>) -> Void) {
+        
+        var urlString: String = ""
+        
+        urlString = "https://api.themoviedb.org/3/movie/\(movieId)/images?api_key=\(API_KEY)"
+        
+        guard let url = URL(string: urlString) else {return}
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                
+                return
+            }
+            
+            do {
+                let movieDetails = try JSONDecoder().decode(MovieImages.self, from: data)
+                completion(.success(movieDetails))
+                
+            } catch {
+                print(error)
+                completion(.failure(.invalidData))
+            }
+            
+            
+        }
+        task.resume()
     }
     
     func fetchImageFromUrl(poster_path: String, completion: @escaping(UIImage) -> Void) {
