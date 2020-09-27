@@ -56,15 +56,55 @@
 		7DDF5E312520D3D000D33730 /* MovieDB-MVC */ = {
 			isa = PBXGroup;
 			children = (
+				7DDF5E4C2520D52A00D33730 /* Views */,
+				7DDF5E4B2520D52100D33730 /* Controllers */,
+				7DDF5E4A2520D50A00D33730 /* Models */,
+				7DDF5E492520D4B300D33730 /* Networking */,
+				7DDF5E482520D48800D33730 /* App */,
+				7DDF5E3B2520D3D300D33730 /* Assets.xcassets */,
+			);
+			path = "MovieDB-MVC";
+			sourceTree = "<group>";
+		};
+		7DDF5E482520D48800D33730 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				7DDF5E322520D3D000D33730 /* AppDelegate.swift */,
 				7DDF5E342520D3D000D33730 /* SceneDelegate.swift */,
-				7DDF5E362520D3D000D33730 /* ViewController.swift */,
-				7DDF5E382520D3D000D33730 /* Main.storyboard */,
-				7DDF5E3B2520D3D300D33730 /* Assets.xcassets */,
 				7DDF5E3D2520D3D300D33730 /* LaunchScreen.storyboard */,
 				7DDF5E402520D3D300D33730 /* Info.plist */,
 			);
-			path = "MovieDB-MVC";
+			path = App;
+			sourceTree = "<group>";
+		};
+		7DDF5E492520D4B300D33730 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7DDF5E4A2520D50A00D33730 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7DDF5E4B2520D52100D33730 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DDF5E362520D3D000D33730 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7DDF5E4C2520D52A00D33730 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7DDF5E382520D3D000D33730 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
