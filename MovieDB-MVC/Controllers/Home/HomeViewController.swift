@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     var movies: [Movie] = []
     var selectedMovie: Movie?
     
+    var currentPage: Int = 1
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,12 +40,28 @@ class HomeViewController: UIViewController {
     
     // MARK: - Methods
     func loadData() {
-        MovieDBResquest.sharedInstance.fetchMovies(with: 1, completion: { result in
+        MovieDBRequest.sharedInstance.fetchMovies(with: 1, completion: { result in
             switch result {
             case .success(let movies):
                 DispatchQueue.main.async {
                     self.movies = movies
-                    print(movies)
+                    self.moviesTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        });
+    }
+    
+    func loadNextPage() {
+        
+        currentPage += 1
+        
+        MovieDBRequest.sharedInstance.fetchMovies(with: currentPage, completion: { result in
+            switch result {
+            case .success(let movies):
+                DispatchQueue.main.async {
+                    self.movies.append(contentsOf: movies)
                     self.moviesTableView.reloadData()
                 }
             case .failure(let error):
@@ -91,6 +109,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = movies[indexPath.row]
         selectedMovie = movie
         performSegue(withIdentifier: SEGUE_DETAIL_ID, sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // if last cell, load next page
+        if indexPath.row == movies.count - 1 {
+            loadNextPage()
+        }
     }
 }
 

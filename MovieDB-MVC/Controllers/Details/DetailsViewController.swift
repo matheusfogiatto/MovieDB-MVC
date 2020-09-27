@@ -36,7 +36,7 @@ class DetailsViewController: UIViewController {
     
     // MARK: - Methods
     func loadData() {
-        MovieDBResquest.sharedInstance.getMovieImages(movieId: movie?.id ?? 0, completion: { result in
+        MovieDBRequest.sharedInstance.getMovieImages(movieId: movie?.id ?? 0, completion: { result in
             switch result {
             case .success(let movie):
                 DispatchQueue.main.async {
@@ -59,7 +59,7 @@ class DetailsViewController: UIViewController {
     }
     
     func loadImage(url: String) {
-        MovieDBResquest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
+        MovieDBRequest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
             DispatchQueue.main.async {
                 self.movieImage.image = imageResult
             }

@@ -40,7 +40,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func loadImage(url: String) {
-        MovieDBResquest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
+        MovieDBRequest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
             DispatchQueue.main.async {
                 self.movieImage.image = imageResult
             }

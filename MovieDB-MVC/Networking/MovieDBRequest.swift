@@ -22,11 +22,11 @@ struct  MovieDetailsResult: Codable {
     var results : MovieImages
 }
 
-class MovieDBResquest {
+class MovieDBRequest {
     
     let API_KEY = "71e9aa47b38db25bc9b3aca8210619b0"
     
-    static var sharedInstance = MovieDBResquest()
+    static var sharedInstance = MovieDBRequest()
     
     let cache = NSCache<NSString, UIImage>()
     
