@@ -175,23 +175,18 @@ class MovieDBRequest {
         task.resume()
     }
     
-    func getLocalImage(from posterPath: String) -> UIImage{
+    func getLocalImage(from posterPath: String, completion: @escaping (Result <UIImage, ResultError>) -> Void) {
         let cacheKey = NSString(string: posterPath)
         
-        guard let image = cache.object(forKey: cacheKey) else {
-            var image: UIImage = UIImage()
-            
-            getImageFromUrl(poster_path: posterPath) { result in
-                switch result {
-                case .success(let resultImage):
-                    image =  resultImage
-                case .failure(_): break
-                    
-                }
+        if let image = cache.object(forKey: cacheKey) {
+            completion(.success(image))
+        } else {
+            fetchImageFromUrl(poster_path: posterPath) { result in
+                    completion(.success(result))
             }
-            return image
+            completion(.failure(.invalidData))
         }
-        return image
+        
     }
 }
 

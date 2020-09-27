@@ -59,9 +59,17 @@ class DetailsViewController: UIViewController {
     }
     
     func loadImage(url: String) {
-        MovieDBRequest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
-            DispatchQueue.main.async {
-                self.movieImage.image = imageResult
+        
+        self.movieImage.image = UIImage()
+        
+        MovieDBRequest.sharedInstance.getLocalImage(from: url) { results in
+            switch results {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.movieImage.image = image
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }

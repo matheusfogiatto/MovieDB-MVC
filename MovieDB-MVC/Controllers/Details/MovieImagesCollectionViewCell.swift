@@ -18,9 +18,14 @@ class MovieImagesCollectionViewCell: UICollectionViewCell {
     }
     
     func loadImage(url: String) {
-        MovieDBRequest.sharedInstance.fetchImageFromUrl(poster_path: url) { imageResult in
-            DispatchQueue.main.async {
-                self.imageBackdrop.image = imageResult
+        MovieDBRequest.sharedInstance.getLocalImage(from: url) { results in
+            switch results {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.imageBackdrop.image = image
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }
