@@ -8,12 +8,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var movies: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Just for test API result
+        MovieDBResquest.sharedInstance.fetchMovies(with: 1, completion: { result in
+            switch result {
+            case .success(let movies):
+                DispatchQueue.main.async {
+                    self.movies = movies
+                    print(movies)
+                }
+            case .failure(_):
+                print("fail to show movies in the view∫")
+            }
+            
+        });
     }
-
-
+    
+    
 }
 

@@ -13,6 +13,8 @@
 		7DDF5E3A2520D3D000D33730 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DDF5E382520D3D000D33730 /* Main.storyboard */; };
 		7DDF5E3C2520D3D300D33730 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDF5E3B2520D3D300D33730 /* Assets.xcassets */; };
 		7DDF5E3F2520D3D300D33730 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DDF5E3D2520D3D300D33730 /* LaunchScreen.storyboard */; };
+		7DDF5E4E2520D70B00D33730 /* MovieDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF5E4D2520D70B00D33730 /* MovieDBRequest.swift */; };
+		7DDF5E522520D8A800D33730 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF5E512520D8A800D33730 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		7DDF5E3B2520D3D300D33730 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DDF5E3E2520D3D300D33730 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DDF5E402520D3D300D33730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DDF5E4D2520D70B00D33730 /* MovieDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBRequest.swift; sourceTree = "<group>"; };
+		7DDF5E512520D8A800D33730 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		7DDF5E492520D4B300D33730 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				7DDF5E4D2520D70B00D33730 /* MovieDBRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		7DDF5E4A2520D50A00D33730 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7DDF5E512520D8A800D33730 /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,7 +185,9 @@
 			files = (
 				7DDF5E372520D3D000D33730 /* ViewController.swift in Sources */,
 				7DDF5E332520D3D000D33730 /* AppDelegate.swift in Sources */,
+				7DDF5E4E2520D70B00D33730 /* MovieDBRequest.swift in Sources */,
 				7DDF5E352520D3D000D33730 /* SceneDelegate.swift in Sources */,
+				7DDF5E522520D8A800D33730 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -311,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -328,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FTN4AS5AAV;
-				INFOPLIST_FILE = "MovieDB-MVC/Info.plist";
+				INFOPLIST_FILE = "MovieDB-MVC/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FTN4AS5AAV;
-				INFOPLIST_FILE = "MovieDB-MVC/Info.plist";
+				INFOPLIST_FILE = "MovieDB-MVC/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
