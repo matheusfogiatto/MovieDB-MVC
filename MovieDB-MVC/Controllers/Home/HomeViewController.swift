@@ -10,13 +10,14 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: - Constants
-    private let NUMBER_OF_SECTIONS = 1
+    private let SEGUE_DETAIL_ID = "goToDetails"
     
     // MARK: - Outlets
     @IBOutlet weak var moviesTableView: UITableView!
     
     // MARK: - Variables
     var movies: [Movie] = []
+    var selectedMovie: Movie?
     
     
     // MARK: - Lifecycle
@@ -52,6 +53,16 @@ class HomeViewController: UIViewController {
     
 }
 
+// MARK: - Segue
+extension HomeViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let movieDetailVC = segue.destination as? DetailsViewController else { return }
+        movieDetailVC.movie = selectedMovie
+    }
+}
+
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +84,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = movies[indexPath.row]
+        selectedMovie = movie
+        performSegue(withIdentifier: SEGUE_DETAIL_ID, sender: nil)
     }
 }
 

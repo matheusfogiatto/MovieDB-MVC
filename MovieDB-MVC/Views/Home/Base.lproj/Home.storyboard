@@ -34,11 +34,22 @@
                     <navigationItem key="navigationItem" id="6ga-SC-OeB"/>
                     <connections>
                         <outlet property="moviesTableView" destination="lcd-lL-mhF" id="oWU-Od-U5O"/>
+                        <segue destination="cjJ-H7-6h1" kind="show" identifier="goToDetails" id="mn9-cK-zXz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="247.82608695652175" y="59.598214285714285"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="hm7-ag-Ayk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="cjJ-H7-6h1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LaH-Ln-8no"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVc-Zm-oN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023" y="76"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Era-Ex-fhZ">
